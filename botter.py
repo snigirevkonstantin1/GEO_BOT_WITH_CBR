@@ -5,7 +5,10 @@ import time
 from telebot import types
 from cbparser import check_currency_nominal as ccn, check_currency_value as ccv
 from ymap import closest_metro
+import os
+from flask import Flask, request
 
+server = Flask(__name__)
 
 
 token = telegramtoken
@@ -68,7 +71,18 @@ def handle_message(message):
                      .format((currensi)),
                      reply_markup=key)
 
-try:
-    bot.polling(none_stop=True, interval=0,timeout=20)
-except Exception as e:
-    time.sleep(2)
+@server.route('/' + token, methods=['POST'])
+def getMessage():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "!", 200
+
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://trybotter.herokuapp.com/' + token)
+    return "!", 200
+
+
+if __name__ == "__main__":
+    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))

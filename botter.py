@@ -23,6 +23,11 @@ def keyboard():
     return key
 
 
+@bot.message_handler(commands=['start'])
+def handle_currency(message):
+    bot.send_message(chat_id=message.chat.id, text='Привет')
+
+
 @bot.callback_query_handler(func=lambda x: True)
 def callback_handler(query):
     message = query.message

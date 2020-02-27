@@ -1,9 +1,11 @@
 from openwater import whater
 import requests
 from bs4 import BeautifulSoup
+from secret_token import YANDEX_SECRET_TOKEN
+
 
 def closest_metro(location):
-    token1 = "21c338c5-4077-4dbc-a9a7-5d48b72a1e3e"
+    token1 = "YANDEX_SECRET_TOKEN"
     lat = location.latitude
     lon = location.longitude
     temp = whater(lat, lon)

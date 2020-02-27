@@ -1,1 +1,1 @@
-telegramtoken = '1012797925:AAGDUqcXn4sQZnAZkfUEbOcCu-ZeBSL3ASY'
+telegramtoken = 'YOUR_SECRET_TOKEN'

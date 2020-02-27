@@ -1,4 +1,4 @@
-# trybot
+# <center>GEO_BOT_WITH_CBR</center>
 Имя бота - @Alekseii_bot
 ---
 <h3>Данный бот работает с API Яндекс карт, API openweathermap, XML цб рф.</h3>

@@ -5,3 +5,4 @@ lib64
 __pycache__
 src
 trybot
+secret_token
